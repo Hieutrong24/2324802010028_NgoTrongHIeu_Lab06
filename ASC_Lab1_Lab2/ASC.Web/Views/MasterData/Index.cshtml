@@ -1,0 +1,38 @@
+@model IEnumerable<ASC.Model.Entities.MasterDataKey>
+@{
+    ViewData["Title"] = "Master Data";
+    Layout = "_SecureLayout";
+}
+
+<h4>Master Data</h4>
+
+@foreach (var key in Model)
+{
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">@key.DisplayName</span>
+            <p class="grey-text">@key.Description</p>
+            <table class="striped responsive-table">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Display Name</th>
+                        <th>Value</th>
+                        <th>Sequence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var value in key.Values.OrderBy(x => x.DisplaySequence))
+                {
+                    <tr>
+                        <td>@value.KeyCode</td>
+                        <td>@value.DisplayName</td>
+                        <td>@value.Value</td>
+                        <td>@value.DisplaySequence</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}

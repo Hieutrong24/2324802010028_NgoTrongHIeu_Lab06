@@ -1,0 +1,100 @@
+@model ASC.Web.Configuration.ApplicationSettings
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="asc-hero">
+    <div class="container">
+        <div class="row valign-wrapper" style="margin-bottom:0;">
+            <div class="col s12 l7">
+                <span class="asc-chip">LAB 1 + LAB 2 IMPLEMENTATION</span>
+                <h1>@Model.ApplicationTitle</h1>
+                <p class="flow-text">@Model.TagLine</p>
+                <p>
+                    This sample implements the Automobile Service Center scenario using ASP.NET Core MVC,
+                    layered architecture, repository + unit of work, Entity Framework Core, dependency injection,
+                    and configuration-driven seed data.
+                </p>
+                <div class="asc-hero-actions">
+                    <a asp-controller="Home" asp-action="Dashboard" class="btn-large waves-effect waves-light asc-btn-primary">Open Dashboard</a>
+                    <a asp-controller="ServiceRequests" asp-action="Create" class="btn-large waves-effect waves-light asc-btn-secondary">Create Request</a>
+                </div>
+            </div>
+            <div class="col s12 l5">
+                <div class="card asc-feature-card">
+                    <div class="card-content">
+                        <span class="card-title">Core implementation highlights</span>
+                        <ul class="browser-default asc-list">
+                            <li>Layered architecture with separate Model, Utilities, DataAccess, Business, and Web projects</li>
+                            <li>Repository Pattern and Unit of Work Pattern</li>
+                            <li>Application settings loaded from appsettings.json via IOptions</li>
+                            <li>Database auto-created and seeded on first run</li>
+                            <li>Public layout and secure-style dashboard layout</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container section">
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="card asc-info-card">
+                <div class="card-content">
+                    <i class="material-icons large asc-icon">build</i>
+                    <span class="card-title">Who we are</span>
+                    <p>
+                        We provide modern service workflows for vehicle inspection, maintenance,
+                        and customer communication.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card asc-info-card">
+                <div class="card-content">
+                    <i class="material-icons large asc-icon">flash_on</i>
+                    <span class="card-title">Our competency</span>
+                    <p>
+                        Service engineers and administrators can manage work orders, products,
+                        and master data through a single interface.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card asc-info-card">
+                <div class="card-content">
+                    <i class="material-icons large asc-icon">dashboard</i>
+                    <span class="card-title">Easy to work with</span>
+                    <p>
+                        Configuration, database initialization, and navigation are simple enough
+                        for lab practice but structured for extension.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="parallax-container">
+    <div class="parallax asc-parallax-gradient"></div>
+    <div class="container asc-parallax-content">
+        <h4>Committed to delivering transparent, reliable, and scalable service operations</h4>
+    </div>
+</div>
+
+<section class="container section">
+    <div class="card asc-value-card">
+        <div class="card-content">
+            <span class="card-title">Customer value</span>
+            <p>
+                The project models a real-world vehicle service center where customers can submit service
+                requests, engineers can coordinate diagnostics, and administrators maintain master data
+                and products. This reduces manual communication gaps and improves transparency.
+            </p>
+        </div>
+    </div>
+</section>

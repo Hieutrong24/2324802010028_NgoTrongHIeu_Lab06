@@ -1,0 +1,32 @@
+@inject Microsoft.Extensions.Options.IOptions<ASC.Web.Configuration.ApplicationSettings> AppSettings
+@{
+    Layout = "_MasterLayout";
+}
+
+@section Navigation {
+    <nav class="asc-nav">
+        <div class="nav-wrapper container">
+            <a asp-controller="Home" asp-action="Index" class="brand-logo">@AppSettings.Value.ApplicationTitle</a>
+            <a href="#" data-target="mobile-public-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
+                <li><a asp-controller="ServiceRequests" asp-action="Index">Service Requests</a></li>
+                <li><a asp-controller="Products" asp-action="Index">Products</a></li>
+                <li><a asp-controller="MasterData" asp-action="Index">Master Data</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-public-nav">
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
+        <li><a asp-controller="ServiceRequests" asp-action="Index">Service Requests</a></li>
+        <li><a asp-controller="Products" asp-action="Index">Products</a></li>
+        <li><a asp-controller="MasterData" asp-action="Index">Master Data</a></li>
+    </ul>
+}
+
+<main>
+    @RenderBody()
+</main>

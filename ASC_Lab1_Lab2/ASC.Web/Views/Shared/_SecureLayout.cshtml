@@ -1,0 +1,56 @@
+@{
+    Layout = "_MasterLayout";
+}
+
+@section Navigation {
+    <nav class="asc-nav">
+        <div class="nav-wrapper container">
+            <a asp-controller="Home" asp-action="Dashboard" class="brand-logo">ASC Admin</a>
+            <a href="#" data-target="mobile-secure-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
+                <li><a asp-controller="ServiceRequests" asp-action="Create">New Request</a></li>
+                <li><a asp-controller="Products" asp-action="Index">Products</a></li>
+                <li><a asp-controller="MasterData" asp-action="Index">Master Data</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Public Site</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-secure-nav">
+        <li><a asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
+        <li><a asp-controller="ServiceRequests" asp-action="Index">Service Requests</a></li>
+        <li><a asp-controller="ServiceRequests" asp-action="Create">New Request</a></li>
+        <li><a asp-controller="Products" asp-action="Index">Products</a></li>
+        <li><a asp-controller="MasterData" asp-action="Index">Master Data</a></li>
+        <li><a asp-controller="Home" asp-action="Index">Public Site</a></li>
+    </ul>
+}
+
+<main class="secure-shell">
+    <div class="container">
+        <div class="row" style="margin-top:24px;">
+            <div class="col s12 l3">
+                <div class="card asc-side-card">
+                    <div class="card-content">
+                        <span class="card-title">Workspace</span>
+                        <div class="collection">
+                            <a asp-controller="Home" asp-action="Dashboard" class="collection-item">Dashboard</a>
+                            <a asp-controller="ServiceRequests" asp-action="Index" class="collection-item">Service Requests</a>
+                            <a asp-controller="ServiceRequests" asp-action="Create" class="collection-item">Create Request</a>
+                            <a asp-controller="Products" asp-action="Index" class="collection-item">Products</a>
+                            <a asp-controller="MasterData" asp-action="Index" class="collection-item">Master Data</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l9">
+                <div class="card asc-content-card">
+                    <div class="card-content">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

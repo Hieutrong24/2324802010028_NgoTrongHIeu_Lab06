@@ -1,0 +1,74 @@
+@model ServiceRequestCreateViewModel
+@{
+    ViewData["Title"] = "Create Service Request";
+    Layout = "_SecureLayout";
+}
+
+<h4>Create Service Request</h4>
+<p class="grey-text">This form demonstrates MVC model binding, validation, and business-layer orchestration.</p>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="card-panel red lighten-4 red-text text-darken-4"></div>
+
+    <div class="row">
+        <div class="input-field col s12 m6">
+            <input asp-for="CustomerName" />
+            <label asp-for="CustomerName"></label>
+            <span asp-validation-for="CustomerName" class="helper-text red-text"></span>
+        </div>
+        <div class="input-field col s12 m6">
+            <input asp-for="Email" />
+            <label asp-for="Email"></label>
+            <span asp-validation-for="Email" class="helper-text red-text"></span>
+        </div>
+        <div class="input-field col s12 m6">
+            <input asp-for="PhoneNumber" />
+            <label asp-for="PhoneNumber"></label>
+        </div>
+        <div class="input-field col s12 m6">
+            <input asp-for="VehicleRegistrationNumber" />
+            <label asp-for="VehicleRegistrationNumber"></label>
+            <span asp-validation-for="VehicleRegistrationNumber" class="helper-text red-text"></span>
+        </div>
+        <div class="input-field col s12 m6">
+            <input asp-for="CarModel" />
+            <label asp-for="CarModel"></label>
+            <span asp-validation-for="CarModel" class="helper-text red-text"></span>
+        </div>
+        <div class="input-field col s12 m6">
+            <select asp-for="ServiceType" asp-items="Model.ServiceTypes">
+                <option value="" selected disabled>Choose service type</option>
+            </select>
+            <label asp-for="ServiceType"></label>
+            <span asp-validation-for="ServiceType" class="helper-text red-text"></span>
+        </div>
+        <div class="input-field col s12 m6">
+            <input asp-for="BranchName" />
+            <label asp-for="BranchName"></label>
+        </div>
+        <div class="input-field col s12 m6">
+            <input asp-for="AssignedEngineerName" />
+            <label asp-for="AssignedEngineerName"></label>
+        </div>
+        <div class="input-field col s12 m6">
+            <input asp-for="AppointmentDateUtc" type="datetime-local" value="@Model.AppointmentDateUtc.ToString("yyyy-MM-ddTHH:mm")" />
+            <label asp-for="AppointmentDateUtc" class="active"></label>
+        </div>
+        <div class="input-field col s12 m6">
+            <input asp-for="EstimatedAmount" />
+            <label asp-for="EstimatedAmount"></label>
+        </div>
+        <div class="input-field col s12">
+            <textarea asp-for="ComplaintDescription" class="materialize-textarea"></textarea>
+            <label asp-for="ComplaintDescription"></label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn waves-effect waves-light asc-btn-primary">Save</button>
+    <a asp-action="Index" class="btn-flat">Back to list</a>
+</form>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,44 @@
+@model IEnumerable<ASC.Model.Entities.ServiceRequest>
+@{
+    ViewData["Title"] = "Service Requests";
+    Layout = "_SecureLayout";
+}
+
+<h4>Service Requests</h4>
+
+@if (TempData["SuccessMessage"] is string message)
+{
+    <div class="card-panel green lighten-4 green-text text-darken-4">@message</div>
+}
+
+<table class="highlight responsive-table">
+    <thead>
+        <tr>
+            <th>Request</th>
+            <th>Customer</th>
+            <th>Vehicle</th>
+            <th>Service</th>
+            <th>Status</th>
+            <th>Engineer</th>
+            <th>Appointment (UTC)</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var request in Model)
+    {
+        <tr>
+            <td>@request.RequestNumber</td>
+            <td>@request.CustomerName</td>
+            <td>@request.CarModel<br /><span class="grey-text">@request.VehicleRegistrationNumber</span></td>
+            <td>@request.ServiceType</td>
+            <td>@request.Status</td>
+            <td>@request.AssignedEngineerName</td>
+            <td>@request.AppointmentDateUtc.ToString("yyyy-MM-dd HH:mm")</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div class="section">
+    <a asp-action="Create" class="btn waves-effect waves-light asc-btn-primary">Create new service request</a>
+</div>

@@ -1,0 +1,46 @@
+@inject Microsoft.Extensions.Options.IOptions<ASC.Web.Configuration.ApplicationSettings> AppSettings
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - @AppSettings.Value.ApplicationTitle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="asc-body">
+    <header>
+        @await RenderSectionAsync("Navigation", required: false)
+    </header>
+
+    @RenderBody()
+
+    <footer class="page-footer asc-footer">
+        <div class="container">
+            <div class="row" style="margin-bottom:0;">
+                <div class="col s12 m8">
+                    <h5 class="white-text">@AppSettings.Value.CompanyName</h5>
+                    <p class="grey-text text-lighten-4">@AppSettings.Value.TagLine</p>
+                </div>
+                <div class="col s12 m4">
+                    <p class="white-text">Support: @AppSettings.Value.SupportEmail</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © @DateTime.UtcNow.Year - @AppSettings.Value.ApplicationTitle
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
